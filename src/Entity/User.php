@@ -37,17 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100)]
     private ?string $Firstname = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
+    #[ORM\Column(length: 100)]
     private ?string $Adress = null;
 
     #[ORM\Column(length: 5)]
     private ?string $Zipcode = null;
 
-    #[ORM\Column(length: 150, nullable: true)]
+    #[ORM\Column(length: 150)]
     private ?string $City = null;
 
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTimeImmutable $Created_at = null;
+    private ?\DateTimeImmutable $Creat_at = null;
 
     public function getId(): ?int
     {
@@ -154,13 +154,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-  
+
     public function getZipcode(): ?string
     {
         return $this->Zipcode;
     }
 
-    public function setZipcode(string $Zipcode): static
+    public function setZipcode(?string $Zipcode): static
     {
         $this->Zipcode = $Zipcode;
 
@@ -172,23 +172,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->City;
     }
 
-    public function setCity(?string $City): static
+    public function setCity(string $City): static
     {
         $this->City = $City;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatAt(): ?\DateTimeImmutable
     {
-        return $this->Created_at;
+        return $this->Creat_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $Created_at): static
+    public function setCreatAt(\DateTimeImmutable $Creat_at): static
     {
-        $this->Created_at = $Created_at;
+        $this->Creat_at = $Creat_at;
 
         return $this;
     }
-
 }
