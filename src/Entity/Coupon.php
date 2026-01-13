@@ -14,7 +14,7 @@ class Coupon
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 10, unique: true)]
     private ?string $code = null;
 
     #[ORM\Column(type: Types::TEXT)]
