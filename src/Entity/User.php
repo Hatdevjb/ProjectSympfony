@@ -38,22 +38,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $Firstname = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $Address = null;
+    private ?string $Adress = null;
 
     #[ORM\Column(length: 5)]
     private ?string $Zipcode = null;
 
     #[ORM\Column(length: 150, nullable: true)]
-    private ?string $string = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $Created_at = null;
-
-    #[ORM\Column(length: 150, nullable: true)]
     private ?string $City = null;
 
-    #[ORM\Column(length: 100, nullable: true)]
-    private ?string $Adress = null;
+    #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private ?\DateTimeImmutable $Created_at = null;
 
     public function getId(): ?int
     {
@@ -149,6 +143,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getAdress(): ?string
+    {
+        return $this->Adress;
+    }
+
+    public function setAdress(?string $Adress): static
+    {
+        $this->Adress = $Adress;
+
+        return $this;
+    }
   
     public function getZipcode(): ?string
     {
@@ -158,21 +163,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setZipcode(string $Zipcode): static
     {
         $this->Zipcode = $Zipcode;
-
-        return $this;
-    }
-
-
-    
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->Created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $Created_at): static
-    {
-        $this->Created_at = $Created_at;
 
         return $this;
     }
@@ -189,15 +179,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->Adress;
+        return $this->Created_at;
     }
 
-    public function setAdress(?string $Adress): static
+    public function setCreatedAt(\DateTimeImmutable $Created_at): static
     {
-        $this->Adress = $Adress;
+        $this->Created_at = $Created_at;
 
         return $this;
     }
+
 }
