@@ -32,22 +32,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $Lastname = null;
+    private ?string $lastName = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $Firstname = null;
+    private ?string $firstName = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $Adress = null;
+    private ?string $adress = null;
 
     #[ORM\Column(length: 5)]
-    private ?string $Zipcode = null;
+    private ?string $zipcode = null;
 
     #[ORM\Column(length: 150)]
-    private ?string $City = null;
+    private ?string $city = null;
 
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTimeImmutable $Creat_at = null;
+    private ?\DateTimeImmutable $creat_at = null;
 
     public function getId(): ?int
     {
@@ -119,74 +119,74 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // @deprecated, to be removed when upgrading to Symfony 8
     }
 
-    public function getLastname(): ?string
+    public function getLastName(): ?string
     {
-        return $this->Lastname;
+        return $this->lastName;
     }
 
-    public function setLastname(string $Lastname): static
+    public function setLastName(string $lastName): static
     {
-        $this->Lastname = $Lastname;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->Firstname;
+        return $this->firstName;
     }
 
-    public function setFirstname(string $Firstname): static
+    public function setFirstName(string $Firstname): static
     {
-        $this->Firstname = $Firstname;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     public function getAdress(): ?string
     {
-        return $this->Adress;
+        return $this->adress;
     }
 
-    public function setAdress(?string $Adress): static
+    public function setAdress(?string $adress): static
     {
-        $this->Adress = $Adress;
+        $this->adress = $adress;
 
         return $this;
     }
 
     public function getZipcode(): ?string
     {
-        return $this->Zipcode;
+        return $this->zipcode;
     }
 
-    public function setZipcode(?string $Zipcode): static
+    public function setZipcode(?string $zipcode): static
     {
-        $this->Zipcode = $Zipcode;
+        $this->zipcode = $zipcode;
 
         return $this;
     }
 
     public function getCity(): ?string
     {
-        return $this->City;
+        return $this->city;
     }
 
-    public function setCity(string $City): static
+    public function setCity(string $city): static
     {
-        $this->City = $City;
+        $this->city = $city;
 
         return $this;
     }
 
     public function getCreatAt(): ?\DateTimeImmutable
     {
-        return $this->Creat_at;
+        return $this->creat_at;
     }
 
-    public function setCreatAt(\DateTimeImmutable $Creat_at): static
+    public function setCreatAt(\DateTimeImmutable $creat_at): static
     {
-        $this->Creat_at = $Creat_at;
+        $this->creat_at = $creat_at;
 
         return $this;
     }

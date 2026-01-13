@@ -14,11 +14,14 @@ class Coupon
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 10)]
+    private ?string $code = null;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $disount = null;
+    private ?int $discount = null;
 
     #[ORM\Column]
     private ?int $max_usage = null;
@@ -29,7 +32,7 @@ class Coupon
     #[ORM\Column]
     private ?bool $is_valid = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'coupons')]
@@ -39,6 +42,18 @@ class Coupon
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+     public function getCode(): ?int
+    {
+        return $this->code;
+    }
+
+    public function setCode(int $code): static
+    {
+        $this->code = $code;
+
+        return $this;
     }
 
     public function getDescription(): ?string
@@ -53,14 +68,14 @@ class Coupon
         return $this;
     }
 
-    public function getDisount(): ?int
+    public function getDiscount(): ?int
     {
-        return $this->disount;
+        return $this->discount;
     }
 
-    public function setDisount(int $disount): static
+    public function setDiscount(int $discount): static
     {
-        $this->disount = $disount;
+        $this->discount = $discount;
 
         return $this;
     }
