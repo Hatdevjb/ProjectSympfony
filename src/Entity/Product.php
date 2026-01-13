@@ -26,6 +26,9 @@ class Product
     private ?int $price = null;
 
     #[ORM\Column]
+    private ?int $stock = null;
+
+    #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
@@ -80,6 +83,18 @@ class Product
     public function setPrice(int $price): static
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+     public function getStock(): ?int
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock): static
+    {
+        $this->stock = $stock;
 
         return $this;
     }
