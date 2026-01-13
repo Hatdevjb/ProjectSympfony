@@ -31,6 +31,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $Lastname = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $Firstname = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $Address = null;
+
+    #[ORM\Column(length: 5)]
+    private ?string $Zipcode = null;
+
+    #[ORM\Column(length: 150, nullable: true)]
+    private ?string $string = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $Created_at = null;
+
+    #[ORM\Column(length: 150, nullable: true)]
+    private ?string $City = null;
+
+    #[ORM\Column(length: 100, nullable: true)]
+    private ?string $Adress = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -99,5 +123,81 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // @deprecated, to be removed when upgrading to Symfony 8
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->Lastname;
+    }
+
+    public function setLastname(string $Lastname): static
+    {
+        $this->Lastname = $Lastname;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->Firstname;
+    }
+
+    public function setFirstname(string $Firstname): static
+    {
+        $this->Firstname = $Firstname;
+
+        return $this;
+    }
+
+  
+    public function getZipcode(): ?string
+    {
+        return $this->Zipcode;
+    }
+
+    public function setZipcode(string $Zipcode): static
+    {
+        $this->Zipcode = $Zipcode;
+
+        return $this;
+    }
+
+
+    
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->Created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $Created_at): static
+    {
+        $this->Created_at = $Created_at;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->City;
+    }
+
+    public function setCity(?string $City): static
+    {
+        $this->City = $City;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->Adress;
+    }
+
+    public function setAdress(?string $Adress): static
+    {
+        $this->Adress = $Adress;
+
+        return $this;
     }
 }
